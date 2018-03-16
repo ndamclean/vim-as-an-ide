@@ -27,6 +27,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
+Plugin 'qpkorr/vim-bufkill'
 
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
@@ -60,6 +61,10 @@ set hidden
 set tabstop=4
 set shiftwidth=4
 setlocal spell spelllang=en_ca
+
+" bufkill remapping
+map <C-c> :BD<cr>
+map :bd :BD<cr>
 
 syntax on
 
