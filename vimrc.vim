@@ -50,6 +50,10 @@ call vundle#end()
 
 filetype plugin indent on
 
+" --- Language settings ---
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype yaml,yml setlocal ts=2 sw=2 expandtab
+
 " --- General settings ---
 set backspace=indent,eol,start
 set ruler
