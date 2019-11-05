@@ -17,10 +17,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'morhetz/gruvbox'
 
 " ----- Vim as a programmer's text editor -----------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
@@ -45,6 +44,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jez/vim-c0'
 Plugin 'jez/vim-ispc'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-python/python-syntax'
 
 call vundle#end()
 
@@ -53,6 +53,8 @@ filetype plugin indent on
 " --- Language settings ---
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml,yml setlocal ts=2 sw=2 expandtab
+" python-syntax highlighting
+let g:python_highlight_all = 1
 
 " --- General settings ---
 set backspace=indent,eol,start
@@ -103,14 +105,6 @@ let g:airline#extensions#tabline#enabled = 1
 " Use the gruvbox theme for the Airline status bar
 let g:airline_theme='gruvbox'
 
-" ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs with \t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-" To have NERDTree always open on startup
-let g:nerdtree_tabs_open_on_console_startup = 1
-" file extensions to ignore
-let NERDTreeIgnore = ['\.pyc$', '\.so$']
-
 
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
@@ -155,3 +149,9 @@ augroup END
 " ----- jez/vim-superman settings -----
 " better man page support
 noremap K :SuperMan <cword><CR>
+
+" map ctrl+y/p to yank/paste to/from system clipboard
+autocmd VimEnter * nnoremap <C-y> "+y
+autocmd VimEnter * vnoremap <C-y> "+y
+autocmd VimEnter * nnoremap <C-p> "+gP
+autocmd VimEnter * vnoremap <C-p> "+gP
